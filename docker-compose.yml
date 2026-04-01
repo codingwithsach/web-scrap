@@ -1,0 +1,51 @@
+services:
+  wikipedia-archiver:
+    build: .
+    container_name: wikipedia-archiver
+    environment:
+      # Worker configuration
+      - MAX_WORKERS=1
+      - REQUEST_DELAY=5
+      - MAX_ARTICLES=100
+      
+      # Media settings - Enable all media types
+      - ENABLE_AUDIO=true
+      - ENABLE_VIDEO=true
+      - DOWNLOAD_MEDIA=true
+      - MAX_MEDIA_SIZE_MB=1000
+      - MAX_MEDIA_PER_ARTICLE=50
+      
+      # Image settings
+      - USE_THUMBNAILS=true
+      - THUMBNAIL_WIDTH=800
+      
+      # Rate limiting
+      - MAX_REQUESTS_PER_MINUTE=20
+      
+      # Reference extraction
+      - EXTRACT_REFERENCES=true
+      
+      # TTS Settings
+      - ENABLE_TTS=true
+      - SECTION_TTS=true
+      - TTS_LANGUAGE=en
+      - TTS_SPEED=1.0
+      - TTS_CHUNK_SIZE=2000
+      
+      # Translation Settings - Enable Urdu translation
+      - TRANSLATE_TO_URDU=true
+      - TRANSLATION_CHUNK_SIZE=5000
+      - TRANSLATION_DELAY=1
+      
+      # Text files
+      - SAVE_TEXT_FILE=true
+      - TEXT_FORMAT=both
+      
+    volumes:
+      - ./archive_data:/data/current_events
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+          cpus: '1.0'
