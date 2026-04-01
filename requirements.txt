@@ -1,0 +1,9 @@
+requests
+beautifulsoup4
+lxml
+pdfkit
+Pillow
+gTTS
+pydub
+pygame
+googletrans
