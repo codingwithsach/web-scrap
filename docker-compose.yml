@@ -6,7 +6,7 @@ services:
       # Worker configuration
       - MAX_WORKERS=1
       - REQUEST_DELAY=5
-      - MAX_ARTICLES=100
+      - MAX_ARTICLES=10
       
       # Media settings - Enable all media types
       - ENABLE_AUDIO=true

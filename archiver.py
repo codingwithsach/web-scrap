@@ -30,7 +30,7 @@ CONFIG = {
     'ROOT_DIR': os.getenv('ARCHIVER_DATA_PATH', '/data/current_events'),
     'MAX_WORKERS': int(os.getenv('MAX_WORKERS', 1)),
     'REQUEST_DELAY': float(os.getenv('REQUEST_DELAY', 5)),
-    'MAX_ARTICLES': int(os.getenv('MAX_ARTICLES', 1000)),
+    'MAX_ARTICLES': int(os.getenv('MAX_ARTICLES', 10)),
     'DAYS_TO_COVER': 1,
     'MEDIA_TYPES': {
         'images': ['jpg', 'jpeg', 'png', 'gif', 'svg', 'webp', 'bmp', 'ico'],
